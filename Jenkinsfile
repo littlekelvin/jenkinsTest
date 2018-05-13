@@ -25,13 +25,13 @@ pipeline {
                 success {
                     echo 'successed..'
                     echo 'failure..'
-                    mail to: 'kelvin.mai@oocl.com',
+                    mail to: '13724072745@163.com',
                          subject: "Successed Pipeline: ${currentBuild.fullDisplayName}",
                          body: "Something is wrong with ${env.BUILD_URL}"
                 }
                 failure {
                     echo 'failure..'
-                    mail to: 'kelvin.mai@oocl.com',
+                    mail to: '13724072745@163.com',
                          subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
                          body: "Something is wrong with ${env.BUILD_URL}"
                 }
