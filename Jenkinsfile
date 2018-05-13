@@ -4,6 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 bat 'echo "Hello world"'
+                bat 'dir'
             }
         }
     }
