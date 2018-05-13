@@ -1,12 +1,34 @@
 pipeline {
-    agent {
-        docker { image 'node:7-alpine' }
+    agent any
+    
+    environment {
+        DISABLE_AUTH = 'true'
+        DB_ENGINE    = 'sqlite'
     }
+    
     stages {
-        stage('Test') {
+        stage('Build') {
             steps {
-                bat 'node --version'
+                bat 'set'
+                retry(3) {
+                    bat 'echo "Hello world"'
+                }
+                timeout(time: 3, unit: 'MINUTES') {
+                    bat 'dir'
+                }
+            }
+            post {
+                always {
+                    echo 'This will always run'
+                }
+                success {
+                    echo 'successed..'
+                }
+                failure {
+                    echo 'failure..'
+                }
             }
         }
     }
 }
+ 
